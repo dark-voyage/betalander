@@ -3,7 +3,7 @@
 import { red, bold, green } from "./deps.ts";
 import { builder } from "./builder.ts";
 
-const mode = Deno.args[1];
+const mode = Deno.args[0];
 
 if (!mode) {
   console.log(
