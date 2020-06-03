@@ -16,6 +16,7 @@ if (mode == "build") {
   await builder();
 } else if (mode == "help") {
   console.log(bold(`Available commands to use:`));
+  console.log()
   console.log(`help - show this message`);
   console.log(`build - create new server`);
 } else if (mode == "launch") {
