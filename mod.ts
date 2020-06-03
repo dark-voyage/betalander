@@ -10,7 +10,7 @@ if (!mode) {
     red("Missing directory name. Please provide a name for the directory"),
   );
   console.log(mode);
-  console.log(green("Example: betacraft super_cool_project"));
+  console.log(green("Example: betacraft build"));
   Deno.exit(1);
 }
 if (mode == "build") {
