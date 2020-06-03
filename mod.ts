@@ -2,7 +2,7 @@
 
 import { red, bold, green } from "./deps.ts";
 import { builder } from "./builder.ts";
-import { launcher } from "./launcher.ts"
+import { launcher } from "./launcher.ts";
 
 const mode = Deno.args[0];
 
@@ -12,8 +12,7 @@ if (!mode) {
   );
   console.log(green("Example: betacraft help"));
   Deno.exit(1);
-}
-if (mode == "build") {
+} else if (mode == "build") {
   await builder();
 } else if (mode == "launch") {
   await launcher()

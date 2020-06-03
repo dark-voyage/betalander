@@ -17,5 +17,3 @@ export const launcher = async () => {
         launcher_arguments.toString().replace(",", " ")
     )
 }
-
-await launcher()
