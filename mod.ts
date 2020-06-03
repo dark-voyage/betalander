@@ -16,3 +16,9 @@ if (!mode) {
 if (mode == "build") {
   await builder();
 }
+// else if (mode == "launch") {
+
+// }
+// else if (mode == "update") {
+
+// }
