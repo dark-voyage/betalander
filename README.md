@@ -1,7 +1,4 @@
-<p align="center">
-    <img src="https://github.com/genemators/betalander/raw/master/assets/repo/betacraft.png"/>
-    <h4>Minecraft server manager built with Typescript and Denoland.</h4>
-</p>
+<p align="center"><img src="https://github.com/genemators/betalander/raw/master/assets/repo/betacraft.png"/><h4>Minecraft server manager built with Typescript and Denoland.</h4></p>
 
 ## Getting Started
 
