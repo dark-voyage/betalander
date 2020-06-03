@@ -14,18 +14,16 @@ if (!mode) {
 }
 if (mode == "build") {
   await builder();
+} else if (mode == "help") {
+  console.log(bold(`Available commands to use: \n`));
+  console.log(`help - show this message \n`);
+  console.log(`build - create new server \n`);
+} else if (mode == "launch") {
+  console.log("**Coming soon**")
 }
-else if (mode == "help") {
-  console.log(bold(`Available commands to use: \n`))
-  console.log(`help - show this message \n`)
-  console.log(`build - create new server \n`)
+else if (mode == "update") {
+  console.log("**Coming soon**")
 }
-// else if (mode == "launch") {
-
-// }
-// else if (mode == "update") {
-
-// }
 else {
-  console.log(red("Invalid command. Please, try 'betacraft help'"))
+  console.log(red("Invalid command. Please, try 'betacraft help'"));
 }
