@@ -26,9 +26,12 @@ const {
   rename,
 } = Deno;
 
+export let serverName:string
+
 const start = async () => {
   const prompt = green(bold(`Please, enter the server name: `));
   const name = await ask(prompt);
+  serverName = name
   mkdirSync(name);
   chdir(name);
 };
@@ -84,26 +87,31 @@ const init = async () => {
   Deno.chdir("./server");
   Deno.copyFileSync("../builds/server.jar", "./server.jar");
   await download(
-    "https://raw.githubusercontent.com/genemators/betacraft/master/assets/server/eula.txt",
+    "https://raw.githubusercontent.com/genemators/betalander/master/assets/server/eula.txt",
     {
       file: "eula.txt",
       dir: "./",
     },
   );
   await download(
-    "https://raw.githubusercontent.com/genemators/betacraft/master/assets/server/server.properties",
+    "https://raw.githubusercontent.com/genemators/betalander/master/assets/server/server.properties",
     {
       file: "server.properties",
       dir: "./",
     },
   );
   await download(
-      "https://github.com/genemators/betacraft/raw/master/assets/server/server-icon.png",
+      "https://github.com/genemators/betalander/raw/master/assets/server/server-icon.png",
       {
         file: "server-icon.png",
         dir: "./",
       },
     );
+
+  const motd: string = `motd=\u00A7a\u1360\u00A72 Welcome to\u00A7c ${serverName} \u00A72Server\u00A79       t.me/bsba_group\u00A7r\\n\u00A7a\u1360\u00A7e Start playing in our Server\\!\\!\\!\n`
+  const encoder = new TextEncoder()
+  const data = encoder.encode(motd)
+  await Deno.writeFile("server.properties", data, {append: true})
 
   chdir("../");
 };
