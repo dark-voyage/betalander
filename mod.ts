@@ -2,6 +2,7 @@
 
 import { red, bold, green } from "./deps.ts";
 import { builder } from "./builder.ts";
+import { launcher } from "./launcher.ts"
 
 const mode = Deno.args[0];
 
@@ -14,15 +15,17 @@ if (!mode) {
 }
 if (mode == "build") {
   await builder();
+} else if (mode == "launch") {
+  await launcher()
+} else if (mode == "update") {
+  console.log("**Coming soon**");
 } else if (mode == "help") {
-  console.log(bold(`Available commands to use:`));
+  console.log(bold(green(`Available commands to use:`)));
   console.log()
   console.log(`help - show this message`);
   console.log(`build - create new server`);
-} else if (mode == "launch") {
-  console.log("**Coming soon**");
-} else if (mode == "update") {
-  console.log("**Coming soon**");
+  console.log(`launch - launch the server`);
+  console.log(`update - coming soon`)
 } else {
   console.log(red("Invalid command. Please, try 'betacraft help'"));
 }

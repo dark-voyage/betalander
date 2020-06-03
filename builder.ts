@@ -87,30 +87,27 @@ const init = async () => {
 
   Deno.chdir("./server");
   Deno.copyFileSync("../builds/server.jar", "./server.jar");
-  const eula =
-    (await download(
-      "https://raw.githubusercontent.com/genemators/betacraft/master/assets/server/eula.txt",
-      {
-        file: "eula.txt",
-        dir: "./",
-      },
-    ));
-  const configs =
-    (await download(
-      "https://raw.githubusercontent.com/genemators/betacraft/master/assets/server/server.properties",
-      {
-        file: "server.properties",
-        dir: "./",
-      },
-    ));
-  const icon =
-    (await download(
+  await download(
+    "https://raw.githubusercontent.com/genemators/betacraft/master/assets/server/eula.txt",
+    {
+      file: "eula.txt",
+      dir: "./",
+    },
+  );
+  await download(
+    "https://raw.githubusercontent.com/genemators/betacraft/master/assets/server/server.properties",
+    {
+      file: "server.properties",
+      dir: "./",
+    },
+  );
+  await download(
       "https://github.com/genemators/betacraft/raw/master/assets/server/server-icon.png",
       {
         file: "server-icon.png",
         dir: "./",
       },
-    ));
+    );
 
   chdir("../");
 };
