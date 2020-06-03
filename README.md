@@ -1,7 +1,5 @@
 <p align="center">
-    <a href="https://github.com/genemators/betalander" target="_blank">
-        <img src="https://github.com/genemators/betalander/raw/master/assets/repo/betacraft.png"/>
-    </a>
+    <img src="https://github.com/genemators/betalander/raw/master/assets/repo/betacraft.png"/>
     <h4>Minecraft server manager built with Typescript and Denoland.</h4>
 </p>
 
