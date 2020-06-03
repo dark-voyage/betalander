@@ -9,8 +9,7 @@ if (!mode) {
   console.log(
     red("Missing directory name. Please provide a name for the directory"),
   );
-  console.log(mode);
-  console.log(green("Example: betacraft build"));
+  console.log(green("Example: betacraft help"));
   Deno.exit(1);
 }
 if (mode == "build") {
@@ -29,3 +28,6 @@ else if (mode == "help") {
 // else if (mode == "update") {
 
 // }
+else {
+  console.log(red("Invalid command. Please, try 'betacraft help'"))
+}
