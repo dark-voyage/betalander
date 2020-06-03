@@ -19,11 +19,9 @@ if (mode == "build") {
   console.log(`help - show this message \n`);
   console.log(`build - create new server \n`);
 } else if (mode == "launch") {
-  console.log("**Coming soon**")
-}
-else if (mode == "update") {
-  console.log("**Coming soon**")
-}
-else {
+  console.log("**Coming soon**");
+} else if (mode == "update") {
+  console.log("**Coming soon**");
+} else {
   console.log(red("Invalid command. Please, try 'betacraft help'"));
 }
