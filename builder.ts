@@ -1,5 +1,4 @@
 import {
-  red,
   green,
   bold,
   walkSync,
@@ -14,7 +13,6 @@ import {
   builds,
   url,
   messages,
-  error,
   info,
   success,
   ask,
@@ -23,8 +21,6 @@ import {
 const {
   cwd,
   chdir,
-  writeFile,
-  args,
   exit,
   mkdirSync,
   rename,
@@ -55,9 +51,9 @@ const build = async () => {
     dir: "./",
   };
 
-  const builder = (await download(url, destination));
+  await download(url, destination)
   info(messages["building"]);
-  let response = await exec(
+  await exec(
     `java -jar "BuildTools.jar"`,
     { output: OutputMode.Capture },
   );
