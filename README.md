@@ -1,6 +1,6 @@
 <p align="center"><a href="https://github.com/genemators/betalander" target="_blank"><img src="https://github.com/genemators/betalander/raw/master/assets/repo/betacraft.png"/></a></p>
 
-<p align="center">Minecraft server manager built with Typescript and Denoland.</p>
+<p align="center"><h2>Minecraft server manager built with Typescript and Denoland.</h2></p>
 
 ## Getting Started
 
