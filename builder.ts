@@ -108,7 +108,7 @@ const init = async () => {
       },
     );
 
-  const motd: string = `motd=\u00A7a\u1360\u00A72 Welcome to\u00A7c ${serverName} \u00A72Server\u00A79       t.me/bsba_group\u00A7r\\n\u00A7a\u1360\u00A7e Start playing in our Server\\!\\!\\!\n`
+  const motd: string = `motd=\\u00A7\\u1360\\u00A72 Welcome to\\u00A7c ${serverName} \\u00A72Server\\u00A79       t.me/bsba_group\\u00A7r\\n\\u00A7a\\u1360\\u00A7e Start playing in our Server\\!\\!\\!\n`
   const encoder = new TextEncoder()
   const data = encoder.encode(motd)
   await Deno.writeFile("server.properties", data, {append: true})

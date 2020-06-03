@@ -9,6 +9,6 @@ export const launcher = async () => {
     Deno.chdir(Deno.cwd())
     Deno.chdir('server')
     await exec(
-        "java -jar server.jar"
+        "java -jar server.jar nogui"
     )
 }
