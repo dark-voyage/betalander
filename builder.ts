@@ -84,8 +84,9 @@ const init = async () => {
   }
   success(messages["directory_created"]);
 
-  Deno.chdir("./server");
-  Deno.copyFileSync("../builds/server.jar", "./server.jar");
+  await Deno.chdir("./server");
+  await Deno.copyFileSync("../builds/server.jar", "./server.jar");
+  await Deno.remove("../builds/server.jar")
   await download(
     "https://raw.githubusercontent.com/genemators/betalander/master/assets/server/eula.txt",
     {
