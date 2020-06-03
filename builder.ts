@@ -91,6 +91,16 @@ const init = async () => {
         file: "server-icon.png",
         dir: "./"
     }))
+
+    chdir('../')
+
+    if (Deno.build.os === "windows") {
+        const starter = (await download())
+        const updater = (await download())
+        const cleaner = (await download())
+    } else {
+
+    }
 }
 
 export const builder = async () => {
