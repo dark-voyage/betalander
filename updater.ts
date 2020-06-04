@@ -59,6 +59,7 @@ const init = async () => {
     info(messages["init"]);
 
     await Deno.chdir("./server");
+    await Deno.remove("./server.jar")
     await Deno.copyFileSync("../builds/server.jar", "./server.jar");
     await Deno.remove("../builds/server.jar")
 
