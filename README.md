@@ -6,5 +6,19 @@
 
 You have 2 options to proceed with our manager:
 
-- Install the executable on your denoland
-- Run it remotely with all privileges
+1. Install the executable on your denoland
+
+```bash
+deno install --unstable --allow-all --name=betalander https://raw.githubusercontent.com/genemators/betalander/master/mod.ts
+```
+
+Then you can use our cli:
+```bash
+betalander help
+```
+
+2. Run it remotely with all privileges
+
+```bash
+deno run --allow-all --unstable https://raw.githubusercontent.com/genemators/betalander/master/mod.ts build
+```
