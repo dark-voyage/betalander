@@ -118,41 +118,35 @@ const init = async () => {
 
   if (Deno.build.os === "windows") {
     await download(
-        "",
+        "https://raw.githubusercontent.com/genemators/betalander/master/actions/windows/start.cmd",
         {
-          file: "",
+          file: "start.cmd",
           dir: "./",
         }
     )
     await download(
-        "",
+        "https://raw.githubusercontent.com/genemators/betalander/master/actions/windows/update.cmd",
         {
-          file: "",
+          file: "update.cmd",
           dir: "./",
         }
     )
   } else {
     await download(
-        "",
+        "https://raw.githubusercontent.com/genemators/betalander/master/actions/unix/start.sh",
         {
-          file: "",
+          file: "start.sh",
           dir: "./",
         }
     )
     await download(
-        "",
+        "https://raw.githubusercontent.com/genemators/betalander/master/actions/unix/update.sh",
         {
-          file: "",
+          file: "update.sh",
           dir: "./",
         }
     )
   }
-
-  await download(
-      "",
-
-  )
-
 };
 
 export const builder = async () => {
