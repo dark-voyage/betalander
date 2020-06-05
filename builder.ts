@@ -115,6 +115,44 @@ const init = async () => {
   await Deno.writeFile("server.properties", data, {append: true})
 
   chdir("../");
+
+  if (Deno.build.os === "windows") {
+    await download(
+        "",
+        {
+          file: "",
+          dir: "./",
+        }
+    )
+    await download(
+        "",
+        {
+          file: "",
+          dir: "./",
+        }
+    )
+  } else {
+    await download(
+        "",
+        {
+          file: "",
+          dir: "./",
+        }
+    )
+    await download(
+        "",
+        {
+          file: "",
+          dir: "./",
+        }
+    )
+  }
+
+  await download(
+      "",
+
+  )
+
 };
 
 export const builder = async () => {

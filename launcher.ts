@@ -1,11 +1,7 @@
 import { exec } from "./deps.ts"
 
-let message = {
-    "start": "The Launcher is being started!"
-}
-
 export const launcher = async () => {
-    console.log(message["start"])
+    console.log(`The Launcher is being started!`)
     Deno.chdir(Deno.cwd())
     Deno.chdir('server')
     await exec(
