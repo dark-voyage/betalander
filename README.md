@@ -6,7 +6,7 @@ If you want to create your own server with my codes, just head to the [Deploy yo
 ## Deploy Your Own
 **To deploy your own server with my instances follow the steps provided below:**
 
-# ON WINDOWS:
+### ON WINDOWS:
 
 1. You have two options to proceed with server manager, install or use it remotely.
 - To install CLI, execute:
@@ -29,7 +29,7 @@ If you used the remote session, proceed with it and it will create server file.
 > **Attention:** In order to update server file, spawn cmd session on server folder then type `betalander update` or
 > just execute update.cmd file!
 
-# ON LINUX:
+### ON LINUX:
 
 1. You have two options to proceed with server manager, install or use it remotely.
 - To install CLI, execute:
