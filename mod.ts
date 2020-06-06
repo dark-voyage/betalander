@@ -22,4 +22,5 @@ if (!mode) {
   await helper()
 } else {
   err("Invalid command. Please, try 'betacraft help'")
+  Deno.exit(0)
 }

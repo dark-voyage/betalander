@@ -1,4 +1,4 @@
-import {exec, notify} from "./deps.ts"
+import { exec } from "./deps.ts"
 import { success } from "./utils.ts";
 
 export const launcher = async () => {

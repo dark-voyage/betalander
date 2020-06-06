@@ -1,4 +1,4 @@
-import {walkSync, download, exec, notify} from "./deps.ts";
+import {walkSync, download, exec } from "./deps.ts";
 
 import { info, success } from "./utils.ts";
 

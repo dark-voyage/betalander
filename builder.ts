@@ -1,5 +1,5 @@
 import { info, success, ask, err } from "./utils.ts";
-import {green, bold, walkSync, download, Destination, exec, OutputMode, notify} from "./deps.ts";
+import {green, bold, walkSync, download, Destination, exec, OutputMode } from "./deps.ts";
 
 let serverName: string
 
