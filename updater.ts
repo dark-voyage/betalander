@@ -1,4 +1,4 @@
-import { walkSync, download, Destination, exec } from "./deps.ts";
+import {walkSync, download, Destination, exec, notify} from "./deps.ts";
 
 import { builds, url, info, success } from "./utils.ts";
 
@@ -41,6 +41,13 @@ const init = async () => {
     await Deno.remove("../builds/server.jar")
 
     Deno.chdir("../");
+    notify({
+        title: 'Betalander',
+        message: 'Your server has been updated!',
+        icon: {
+            app: "Terminal",
+        }
+    })
 };
 
 export const updater = async () => {

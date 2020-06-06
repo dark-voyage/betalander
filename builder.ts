@@ -1,5 +1,5 @@
 import { info, success, ask, err } from "./utils.ts";
-import { green, bold, walkSync, download, Destination, exec, OutputMode } from "./deps.ts";
+import {green, bold, walkSync, download, Destination, exec, OutputMode, notify} from "./deps.ts";
 
 let serverName: string
 
@@ -122,6 +122,13 @@ const init = async () => {
     )
   }
   success(bold(`Your server is ready! Enjoy (☞ﾟヮﾟ)☞`))
+  notify({
+      title: 'Betalander',
+      message: 'Betalander finished with building your server!',
+      icon: {
+          app: "Terminal",
+      }
+  })
 };
 
 export const builder = async () => {
