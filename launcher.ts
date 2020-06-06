@@ -1,7 +1,8 @@
 import { exec } from "./deps.ts"
+import { success } from "./utils.ts";
 
 export const launcher = async () => {
-    console.log(`The Launcher is being started!`)
+    success(`The server is being started!`)
     Deno.chdir(Deno.cwd())
     Deno.chdir('server')
     await exec(

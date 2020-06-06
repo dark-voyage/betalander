@@ -1,3 +1,5 @@
+import { info } from "./utils.ts";
+
 const helper_text: string =
 `Usage: betalander <command>
 
@@ -11,6 +13,6 @@ help        Show this message
 Type 'betalander help' to get this help message.`
 
 export const helper = () => {
-    console.log(helper_text)
+    info(helper_text)
 }
 

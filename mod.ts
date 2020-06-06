@@ -1,18 +1,16 @@
 #!/usr/bin/env deno
 
-import { red, bold, green } from "./deps.ts";
-import { builder } from "./builder.ts";
-import { launcher } from "./launcher.ts";
-import { updater } from "./updater.ts";
 import { helper } from "./help.ts";
+import { err, success } from "./utils.ts";
+import { builder } from "./builder.ts";
+import { updater } from "./updater.ts";
+import { launcher } from "./launcher.ts";
 
 const mode = Deno.args[0];
 
 if (!mode) {
-  console.log(
-    red("Missing directory name. Please provide a name for the directory"),
-  );
-  console.log(green("Example: betacraft help"));
+  err("Missing directory name. Please provide a name for the directory"),
+  success("Example: betacraft help")
   Deno.exit(1);
 } else if (mode == "build") {
   await builder();
@@ -23,5 +21,5 @@ if (!mode) {
 } else if (mode == "help") {
   await helper()
 } else {
-  console.log(red("Invalid command. Please, try 'betacraft help'"));
+  err("Invalid command. Please, try 'betacraft help'")
 }

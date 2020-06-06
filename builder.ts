@@ -1,61 +1,36 @@
-import {
-  green,
-  bold,
-  walkSync,
-  download,
-  Destination,
-  exec,
-  OutputMode,
-} from "./deps.ts";
+import { info, success, ask, err } from "./utils.ts";
+import { green, bold, walkSync, download, Destination, exec, OutputMode } from "./deps.ts";
 
-import {
-  server,
-  builds,
-  url,
-  messages,
-  info,
-  success,
-  ask,
-} from "./utils.ts";
-
-const {
-  cwd,
-  chdir,
-  exit,
-  mkdirSync,
-  rename,
-} = Deno;
-
-export let serverName:string
+let serverName: string
 
 const start = async () => {
   const prompt = green(bold(`Please, enter the server name: `));
   const name = await ask(prompt);
   serverName = name
-  mkdirSync(name);
-  chdir(name);
+  Deno.mkdirSync(name);
+  Deno.chdir(name);
 };
 
 const build = async () => {
-  chdir(cwd());
+  Deno.chdir(Deno.cwd());
 
   try {
-    mkdirSync(builds);
-    success(messages["directory_created"]);
+    Deno.mkdirSync(`builds`);
+    success(`Build directory has been created`);
   } catch (error) {
-    error(error.message);
+    err(error.message)
   }
 
-  chdir(builds);
-  info(messages["downloading"]);
+  Deno.chdir(`builds`);
+  info(`Downloading necessary build tools...`);
 
   const destination: Destination = {
     file: "BuildTools.jar",
     dir: "./",
   };
 
-  await download(url, destination)
-  info(messages["building"]);
+  await download(`https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar`, destination)
+  info(`Building stage is gettin started. Please, be patient! It might take a long time...`);
   await exec(
     `java -jar "BuildTools.jar"`,
     { output: OutputMode.Capture },
@@ -66,23 +41,22 @@ const build = async () => {
       { exts: [".jar"], match: [/spigot-*.*.*.jar/] },
     )
   ) {
-    await rename(entry.path, "server.jar");
+    await Deno.rename(entry.path, "server.jar");
   }
-  success(messages["renamed"]);
-  chdir("..");
+  success(`Server executable has been successfully built and ready to be ported!`);
+  Deno.chdir("..");
 
-  success(messages["finishing"]);
+  success(`Finishing building process.`);
 };
 
 const init = async () => {
-  info(messages["init"]);
+  info(`Initializing the server files with startup files...`);
   try {
-    Deno.mkdirSync(server);
-    success(messages["directory_created"]);
+    Deno.mkdirSync(`server`);
+    success(`The server folder has been initialized`);
   } catch (error) {
-    error(error.message);
+    err(error.message);
   }
-  success(messages["directory_created"]);
 
   await Deno.chdir("./server");
   await Deno.copyFileSync("../builds/server.jar", "./server.jar");
@@ -114,7 +88,7 @@ const init = async () => {
   const data = encoder.encode(motd)
   await Deno.writeFile("server.properties", data, {append: true})
 
-  chdir("../");
+  Deno.chdir("../");
 
   if (Deno.build.os === "windows") {
     await download(
@@ -147,11 +121,12 @@ const init = async () => {
         }
     )
   }
+  success(bold(`Your server is ready! Enjoy (☞ﾟヮﾟ)☞`))
 };
 
 export const builder = async () => {
   await start();
   await build();
   await init();
-  exit(1);
+  Deno.exit(1);
 };
