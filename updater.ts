@@ -40,13 +40,6 @@ const init = async () => {
     await Deno.remove("../builds/server.jar")
 
     Deno.chdir("../");
-    notify({
-        title: 'Betalander',
-        message: 'Your server has been updated!',
-        icon: {
-            app: "Terminal",
-        }
-    })
 };
 
 export const updater = async () => {

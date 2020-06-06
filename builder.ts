@@ -122,13 +122,6 @@ const init = async () => {
     )
   }
   success(bold(`Your server is ready! Enjoy (☞ﾟヮﾟ)☞`))
-  notify({
-      title: 'Betalander',
-      message: 'Betalander finished with building your server!',
-      icon: {
-          app: "Terminal",
-      }
-  })
 };
 
 export const builder = async () => {
