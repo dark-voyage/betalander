@@ -1,4 +1,4 @@
-import { red, green, bold } from "./deps.ts";
+import { red, green, blue, bold } from "./deps.ts";
 
 export async function ask(
   question: string = "",
@@ -22,7 +22,7 @@ export let err = (text: string) => {
 };
 
 export let info = (text: string) => {
-  console.log(bold(text));
+  console.log(blue(bold(text)));
 };
 
 export let success = (text: string) => {
