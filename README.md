@@ -40,7 +40,7 @@ deno install --unstable --allow-all --name=betalander https://raw.githubusercont
 ```bash
 deno run --allow-all --unstable https://raw.githubusercontent.com/genemators/betalander/master/mod.ts build
 ```
-3. If you installed CLI, spawn cmd in any folder and type `betalander build` then proceed with installation. 
+3. If you installed CLI, spawn new terminal in any folder and type `betalander build` then proceed with installation. 
 If you used the remote session, proceed with it and it will create server file.
 4. Enter the folder
 5. Run `start.sh` file
@@ -57,7 +57,7 @@ If you used the remote session, proceed with it and it will create server file.
 #### If you live in country where every citizen have public ip adress do the following:
 
 For localhost:
-1. Open CMD or Powershell
+1. Open CMD, Powershell or terminal
 2. Type ipconfig (for WIN) or ifconfig (for Linux[Ubuntu])
 3. Find your IPv4 adress connecting you to your router
 4. Share your adress in this form: <ip>:25565
