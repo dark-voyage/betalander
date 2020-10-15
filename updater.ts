@@ -1,4 +1,4 @@
-import {walkSync, download, exec } from "./deps.ts";
+import {walkSync, downloadFiles, exec } from "./deps.ts";
 
 import { info, success } from "./utils.ts";
 
@@ -8,11 +8,15 @@ const build = async () => {
     Deno.chdir(`builds`)
     info(`Downloading necessary files to proceed...`)
 
-    await download(
-        `https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar`, {
-            file: "BuildTools.jar",
-            dir: "./",
-        })
+    await downloadFiles({
+        "dest": ".",
+        "files": [
+            {
+                "url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "name": "BuildTools.jar"
+            }
+        ]
+    })
     info(`Starting build stage, please be patient!`)
     await exec(
         `java -jar "BuildTools.jar"`,
